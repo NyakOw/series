@@ -2,6 +2,11 @@
 
 {% block title %}Page test{% endblock %}
 
+{% block header %}
+    AVANT
+    {{ parent() }}
+    APRES
+{% endblock %}
 
 {% block body %}
     <h1>Page test</h1>
