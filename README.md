@@ -14,6 +14,12 @@ Installer les dépendances NPM (JS) :
 npm install
 ```
 
+Créer le fichier `.env.local` :
+
+```dotenv
+DATABASE_URL="mysql://root:@127.0.0.1:3306/series?serverVersion=8&charset=utf8mb4"
+```
+
 Démarrer la compilation des assets avec NPM :
 
 ```shell
