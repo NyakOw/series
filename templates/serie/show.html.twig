@@ -3,5 +3,12 @@
 {% block title %}Détails d'une série - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h1>Détail de la série n°{{ id }}</h1>
+    <h1>{{serie.name}}</h1>
+
+    <container>
+        <p>{{ serie.overview }}</p>
+        <p>{{ serie.vote }}</p>
+
+        <img src="{{ asset('images/posters/series/' ~ serie.poster) }}" alt="{{ serie.name }}">
+    </container>
 {% endblock %}
