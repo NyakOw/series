@@ -1,7 +1,17 @@
 {% extends 'base.html.twig' %}
+{% form_theme serieForm 'bootstrap_5_horizontal_layout.html.twig' %}
 
 {% block title %}Créer une série - {{ parent() }}{% endblock %}
 
 {% block body %}
     <h1>Création d'une nouvelle série</h1>
+
+    {{ form_start(serieForm) }}
+
+    {{ form_widget(serieForm) }}
+
+    <button type="submit">Valider</button>
+
+    {{ form_end(serieForm) }}
+
 {% endblock %}

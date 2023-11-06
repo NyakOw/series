@@ -11,4 +11,20 @@
 
         <img src="{{ asset('images/posters/series/' ~ serie.poster) }}" alt="{{ serie.name }}">
     </container>
+
+    <section class="serie-seasons">
+        {% for season in serie.seasons %}
+            <article>
+                <div>
+                    <h4>Saison {{ season.number }}</h4>
+                    {% if season.overview %}
+                        <p>{{ season.overview }}</p>
+                    {% endif %}
+                </div>
+                <img src="{{ asset('images/posters/seasons/' ~ season.poster) }}" alt="{{ season.number }}">
+
+            </article>
+
+        {% endfor %}
+    </section>
 {% endblock %}

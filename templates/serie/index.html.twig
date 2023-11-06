@@ -8,11 +8,12 @@
     <section class="series">
         {% for serie in series %}
             <article>
-                <a href="{{ path('serie_show', {'id': serie.id}) }}">
+                <a href="{{ path('serie_show', {'id': serie.id}) }}" title="Voir les détails | {{ serie.seasons|length }}">
                     <img src="{{ asset('images/posters/series/' ~ serie.poster)  }}" alt="{{ serie.name }}" onerror="this.src='https://placehold.co/342x513'">
                 </a>
             </article>
         {% endfor %}
+
     </section>
 
 {% endblock %}
