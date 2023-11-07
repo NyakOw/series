@@ -12,6 +12,8 @@
         <img src="{{ asset('images/posters/series/' ~ serie.poster) }}" alt="{{ serie.name }}">
     </container>
 
+    <a href="{{ path('serie_delete', {'id': serie.id}) }}">Supprimer</a>
+
     <section class="serie-seasons">
         {% for season in serie.seasons %}
             <article>
