@@ -6,6 +6,7 @@ use App\Entity\Serie;
 use App\Form\SerieType;
 use App\Repository\SerieRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,6 +45,7 @@ class SerieController extends AbstractController
 
     /**
      * @Route("/new", name="serie_new")
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -69,7 +71,9 @@ class SerieController extends AbstractController
 
     /**
      * @Route("/delete/{id}", name="serie_delete", requirements={"id"="\d+"})
+     * @IsGranted("ROLE_ADMIN")
      */
+
     public function delete(Serie $serie, SerieRepository $serieRepository){
         $serieRepository->remove($serie, true);
         return $this->redirectToRoute('serie_index');

@@ -8,12 +8,33 @@
             <li>
                 <a href="{{ path('serie_index') }}">Séries</a>
             </li>
-            <li>
-                <a href="{{ path('serie_new') }}">Ajouter serie</a>
-            </li>
-            <li>
-                <a href="{{ path('season_new') }}">Ajouter saison</a>
-            </li>
+            {% if  app.user %}
+                {% if is_granted('ROLE_USER') %}
+                    <li>
+                        <a href="{{ path('serie_new') }}">Ajouter serie</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('season_new') }}">Ajouter saison</a>
+                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('app_admin') }}">Admin</a>
+                    {% endif %}
+
+                {% endif %}
+                <li>
+                    <a href="{{ path('app_logout') }}">Deconnexion</a>
+                </li>
+
+            {% else %}
+                <li>
+                    <a href="{{ path('app_login') }}">Connexion</a>
+                </li>
+                <li>
+                    <a href="{{ path('app_register') }}">Créer un compte</a>
+                </li>
+
+
+            {% endif %}
         </ul>
     </nav>
 </header>
